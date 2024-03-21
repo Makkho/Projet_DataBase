@@ -3,8 +3,10 @@ import React from 'react'
 
 const Index = () => {
   return (
-    <div className='bg-green-700'>
+    <div>
       <Header />
+      
+      <img src='' />
     </div>
   )
 }

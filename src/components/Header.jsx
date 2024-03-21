@@ -5,11 +5,10 @@ import Link from 'next/link';
 
 export const Header = () => {
   return (
-    <div>
-      <ul>
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/add">Add</Link></li>
-      </ul>
+    <div className='flex justify-between bg-green-600'>
+        <Link href="/">Home</Link>
+        <Link href="/add">Add</Link>
+      
     </div>
   )
 }
