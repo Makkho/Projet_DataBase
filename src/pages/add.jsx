@@ -1,12 +1,14 @@
+import addingplace from '@/components/Forum'
+import { Header } from '@/components/Header'
+import React from "react"
 
-import {forum} from "@/components/forum"
 
-
-const affichage = () =>  {
-
-  <div>
-  < forum />
-    
+const Add = () => {
+  return (
+<div>
+    <Header />
+    <addingplace />
 </div>
-
+  )
 }
+export default Add; 

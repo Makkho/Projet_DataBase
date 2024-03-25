@@ -6,7 +6,6 @@ const Index = () => {
     <div>
       <Header />
       
-      <img src='' />
     </div>
   )
 }

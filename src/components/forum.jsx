@@ -1,15 +1,22 @@
 import React from 'react'
-//import { object, string, number } from 'yup';
 
 
-export const forum = object({
-  name: string().required(),
-  type: string().required(),
-  pricce: string().required(),
+ const addingplace = () => {
+  return (
+    <div>
+    <form>
+      <input placeholder='place' type='string' required />
+      <br />
+      
+      <input placeholder='Name' type='name' required />
+      <br />
+
+      <button type='submit'>Ajouter</button>
+
+      </form>
+      </div>
+  )
+}
 
 
-
-
-  star: number().required()
-});
-
+export default addingplace;
