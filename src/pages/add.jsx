@@ -1,4 +1,5 @@
-import addingplace from '@/components/Forum'
+
+import { Place } from '@/components/Forum';
 import { Header } from '@/components/Header'
 import React from "react"
 
@@ -6,8 +7,9 @@ import React from "react"
 const Add = () => {
   return (
 <div>
-    <Header />
-    <addingplace />
+      <Header />
+      <Place />
+ 
 </div>
   )
 }
