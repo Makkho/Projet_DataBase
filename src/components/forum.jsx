@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Place = () => {
   return (
-    <div>
+    <div className='flex justify-center '>
     <form>
       <input placeholder='place' type='string' required />
       <br />
@@ -15,10 +15,14 @@ export const Place = () => {
         <br />
         
         <input placeholder='PostalCode' type='number' required />
+        <br />
+
+        <input placeholder='country' type='string' required />
+        <br />
 
 
 
-      <button type='submit'>Ajouter</button>
+      <button className='' type='submit'>Ajouter</button>
 
       </form>
       </div>
