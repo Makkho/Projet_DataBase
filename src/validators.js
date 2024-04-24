@@ -12,7 +12,7 @@ export const nomValidator = yup
   .required()
   .label("Name")
 
-export const adressValidator = yup
+export const addressValidator = yup
   .string()
   .min(3)
   .required()

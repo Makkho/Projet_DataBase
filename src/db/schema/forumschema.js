@@ -2,33 +2,44 @@ import { Schema } from "mongoose"
 
 export const forumSchema = new Schema ({
 
-  name: {
-    type: string,
-    require: true,
-
+  type: { type: String, required: true },
+  nom: { type: String, required: true },
+  address: { type: String, required: true },
+  city: { type: String, required: true },
+  postalcode: { type: Number, required: true },
+  country: { type: String, required: true },
+  kitchenType: {
+    type: String,
   },
-
-  adress: {
-    type: string,
-    require: true,
-
+  averagePrice: {
+    type: Number,
+    min: 1,
+    max: 5,
   },
-
-  village: {
-    type: string,
-    require: true,
-
+  starCount: {
+    type: Number,
+    min: 1,
+    max: 5,
   },
-
-  postalcode: {
-    type: string,
-    require: true,
-
+  artType: {
+    type: String,
   },
-
-  country: {
-    type: string,
-    require: true,
-  }
-
+  artMovement: {
+    type: String,
+  },
+  isFree: {
+    type: Boolean,
+  },
+  price: {
+    type: Number,
+  },
+  barType: {
+    type: String,
+  },
+  parkType: {
+    type: String,
+  },
+  public: {
+    type: Boolean,
+  },
 })

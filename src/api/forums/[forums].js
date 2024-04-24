@@ -1,55 +1,56 @@
-import { mw } from "@/api/mw"
-import { deleteTodo, readTodo, updateTodo } from "@/db/crud"
+import { mw } from "@/api/connect"
+import { deleteForum, readForum, updateForum } from "@/db/crud"
 
 const handle = mw(async (req, res) => {
-  const { todoId } = req.query
+  const { forumId } = req.query
 
-  // Read (item) => GET /todos/:todoId
+  // Read (item) => GET /forums/:forumId
   if (req.method === "GET") {
-    const todo = await readTodo(todoId)
+    const forum = await readForum(forumId)
 
-    if (!todo) {
+    if (!forum) {
       res.status(404).send({ error: "Not found" })
 
       return
     }
 
-    res.send(todo)
+    res.send(forum)
 
     return
   }
 
-  // Update (item) => PATCH /todos/:todoId
+  // Update (item) => PATCH /forums/:forumId
   if (req.method === "PATCH") {
     const description = req.body.description?.trim()
     const { isDone } = req.body
-    const updatedTodo = await updateTodo(todoId, { description, isDone })
+    const updatedForum = await updateForum(forumId, { description, isDone })
 
-    if (!updatedTodo) {
+    if (!updatedForum) {
       res.status(404).send({ error: "Not found" })
 
       return
     }
 
-    res.send(updatedTodo)
+    res.send(updatedForum)
 
     return
   }
 
-  // Delete (item) => DELETE /todos/:todoId
+  // Delete (item) => DELETE /forums/:forumId
   if (req.method === "DELETE") {
-    const todoToBeDelete = await deleteTodo(todoId)
+    const ForumToBeDelete = await deleteForum(forumId)
 
-    if (!todoToBeDelete) {
+    if (!ForumToBeDelete) {
       res.status(404).send({ error: "Not found" })
 
       return
     }
 
-    res.send(todoToBeDelete)
+    res.send(ForumToBeDelete)
 
     return
   }
 
   res.status(404).send({ error: "Not found" })
 })
+export default handle

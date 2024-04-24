@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button"
 import { Form } from "@/components/Form"
 import { FormField } from "@/components/FormField"
-import { cityValidator, countryValidator, postalcodeValidator, adressValidator, typeValidator, nomValidator } from "@/validators"
+import { cityValidator, countryValidator, postalcodeValidator, addressValidator, typeValidator, nomValidator } from "@/validators"
 import { Header } from "@/components/Header"
 import axios from "axios"
 import { Formik } from "formik"
@@ -11,7 +11,7 @@ const initialValues = {
   city: "",
   country: "",
   postalcode: "",
-  adress: "",
+  address: "",
   type: "",
   nom:"",
 }
@@ -19,18 +19,18 @@ const validationSchema = yup.object({
   city: cityValidator,
   country: countryValidator,
   postalcode: postalcodeValidator,
-  adress: adressValidator,
+  address: addressValidator,
   type: typeValidator,
   nom: nomValidator
   
 })
 const CreateForumPage = () => {
-  const handleSubmit = async ({city, country, postalcode, adress, type, nom  }, { resetForm }) => {
+  const handleSubmit = async ({city, country, postalcode, address, type, nom  }, { resetForm }) => {
     await axios.post("http://localhost:3000/api/Forum", {
       city,
       country,
       postalcode,
-      adress,
+      address,
       type,
       nom
     })
@@ -40,8 +40,6 @@ const CreateForumPage = () => {
 
   return (
       
-    
-    
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
@@ -49,6 +47,7 @@ const CreateForumPage = () => {
     >
   
       <Form>
+        <Header />
         <FormField
           name="city"
           placeholder="Enter a city"
@@ -65,9 +64,9 @@ const CreateForumPage = () => {
           label="Postalcode"
         />
         <FormField
-          name="adress"
-          placeholder="Enter a adress"
-          label="Adress"
+          name="address"
+          placeholder="Enter a address"
+          label="Address"
         />
         <FormField
           name="type"
