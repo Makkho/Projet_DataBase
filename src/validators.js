@@ -37,4 +37,21 @@ export const countryValidator = yup
   .required()
   .label("Pays")
 
+export const starcountValidator = yup
+  .number(1, 5)
+  .required()
+  .label("Star")
+
+
+export const isFreeValidator = yup
+  .boolean()
+  .oneOf([true])
+  .oneOf([false])
+  .required("The terms and conditions must be accepted.")
+
+export const kitchenTypeValidator = yup
+  .boolean()
+  .oneOf(["Asian"])
+  .oneOf(["BBQ"])
+  .required()
 

@@ -8,6 +8,8 @@ import {
   addressValidator,
   typeValidator,
   nomValidator,
+  starcountValidator,
+
 } from "@/validators";
 import { Header } from "@/components/Header";
 import axios from "axios";
@@ -21,6 +23,8 @@ const initialValues = {
   address: "",
   type: "",
   nom: "",
+  star: "",
+  
 };
 const validationSchema = yup.object({
   city: cityValidator,
@@ -29,10 +33,12 @@ const validationSchema = yup.object({
   address: addressValidator,
   type: typeValidator,
   nom: nomValidator,
+  star: starcountValidator,
+ 
 });
 const CreateForumPage = () => {
   const handleSubmit = async (
-    { city, country, postalcode, address, type, nom },
+    { city, country, postalcode, address, type, nom, star, },
     { resetForm }
   ) => {
     await axios.post("http://localhost:3000/api/forums", {
@@ -42,6 +48,8 @@ const CreateForumPage = () => {
       address,
       type,
       nom,
+      star,
+      
     });
 
     resetForm();
@@ -55,7 +63,14 @@ const CreateForumPage = () => {
     >
       <Form>
         <Header />
+            <FormField name="type"
+          placeholder="Enter a type"
+          label="Type"
+        />
+        
         <FormField name="city" placeholder="Enter a city" label="City" />
+     
+        
         <FormField
           name="country"
           placeholder="Enter a country"
@@ -71,8 +86,17 @@ const CreateForumPage = () => {
           placeholder="Enter a address"
           label="Address"
         />
-        <FormField name="type" placeholder="Enter a type" label="Type" />
-        <FormField name="nom" placeholder="Enter a nom" label="Nom" />
+       
+
+        <FormField name="nom"
+          placeholder="Enter a nom"
+          label="Nom"
+        />
+         <FormField name="star"
+          placeholder="Enter a star"
+          label="Star"
+        />
+      
         <Button type="submit">Create</Button>
       </Form>
     </Formik>
